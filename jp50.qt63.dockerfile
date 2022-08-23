@@ -11,7 +11,7 @@ RUN apt-get install -y libclang-dev libclang-9-dev libssl-dev libsdl2-dev libaso
 RUN wget http://master.qt.io/archive/qt/6.3/6.3.1/single/qt-everywhere-src-6.3.1.tar.xz && \
     tar -xpf qt-everywhere-src-6.3.1.tar.xz && \
     rm qt-everywhere-src-6.3.1.tar.xz && \
-    cd qtbase-everywhere-src-6.3.1 && \
+    cd qt-everywhere-src-6.3.1 && \
     ./configure -opensource \
 	-confirm-license \
 	-nomake examples \
@@ -20,4 +20,4 @@ RUN wget http://master.qt.io/archive/qt/6.3/6.3.1/single/qt-everywhere-src-6.3.1
 	-xcb-xlib \
 	-bundled-xcb-xinput && \
     make -j12
-RUN cd qtbase-everywhere-src-6.3.1 && make install
+RUN cd qt-everywhere-src-6.3.1 && make install

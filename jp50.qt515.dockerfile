@@ -10,7 +10,7 @@ RUN apt-get install -y '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrende
 RUN apt-get install -y libclang-dev libclang-9-dev libssl-dev libsdl2-dev libasound2 libxmu-dev libxi-dev freeglut3-dev libasound2-dev libjack-jackd2-dev libxrandr-dev
 RUN wget http://master.qt.io/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz && \
     tar -xpf qt-everywhere-src-5.15.2.tar.xz && \
-    rm qt-everywhere-src-5.15.2 && \
+    rm qt-everywhere-src-5.15.2.tar.xz && \
     cd qt-everywhere-src-5.15.2 && \
     ./configure -opensource \
 	-confirm-license \

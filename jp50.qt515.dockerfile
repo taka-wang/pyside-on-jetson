@@ -19,7 +19,7 @@ RUN wget http://master.qt.io/archive/qt/5.15/5.15.2/submodules/qtbase-everywhere
 	-xcb \
 	-xcb-xlib \
 	-bundled-xcb-xinput && \
-    make -j4
+    make -j12
 RUN cd qtbase-everywhere-src-5.15.2 && make install
 
 ENV LLVM_INSTALL_DIR=/usr/lib/llvm-9/

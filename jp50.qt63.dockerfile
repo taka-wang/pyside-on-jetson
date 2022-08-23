@@ -21,3 +21,14 @@ RUN wget http://master.qt.io/archive/qt/6.3/6.3.1/single/qt-everywhere-src-6.3.1
 	-bundled-xcb-xinput && \
     make -j12
 RUN cd qt-everywhere-src-6.3.1 && make install
+
+ENV LLVM_INSTALL_DIR=/usr/lib/llvm-10/
+RUN pip3 install --upgrade pip setuptools && pip3 install packaging
+RUN apt-get install -y ninja-build llvm-10 clang-10 libclang-10-dev
+
+#ENV Clang_DIR=/usr/lib/clang/
+
+RUN cd /root/ && git clone --recursive https://code.qt.io/pyside/pyside-setup && \
+    cd pyside-setup && \
+	git checkout 6.3.1 && \
+    python3 setup.py build --qtpaths=/usr/local/Qt-6.3.1/bin/qtpaths --build-tests --ignore-git --parallel=16

@@ -9,9 +9,9 @@ RUN apt-get update && \
 RUN apt-get install -y '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev
 RUN apt-get install -y libclang-dev libclang-9-dev libssl-dev libsdl2-dev libasound2 libxmu-dev libxi-dev freeglut3-dev libasound2-dev libjack-jackd2-dev libxrandr-dev
 RUN wget http://master.qt.io/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz && \
-    tar -xpf qtbase-everywhere-src-5.15.2.tar.xz && \
-    rm qtbase-everywhere-src-5.15.2.tar.xz && \
-    cd qtbase-everywhere-src-5.15.2 && \
+    tar -xpf qt-everywhere-src-5.15.2 && \
+    rm qt-everywhere-src-5.15.2 && \
+    cd qt-everywhere-src-5.15.2 && \
     ./configure -opensource \
 	-confirm-license \
 	-nomake examples \
@@ -20,7 +20,7 @@ RUN wget http://master.qt.io/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.1
 	-xcb-xlib \
 	-bundled-xcb-xinput && \
     make -j12
-RUN cd qtbase-everywhere-src-5.15.2 && make install
+RUN cd qt-everywhere-src-5.15.2 && make install
 
 ENV LLVM_INSTALL_DIR=/usr/lib/llvm-9/
 RUN pip3 install --upgrade pip && pip3 install packaging

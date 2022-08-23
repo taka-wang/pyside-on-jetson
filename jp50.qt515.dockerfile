@@ -23,7 +23,7 @@ RUN wget http://master.qt.io/archive/qt/5.15/5.15.2/submodules/qtbase-everywhere
 RUN cd qtbase-everywhere-src-5.15.2 && make install
 
 ENV LLVM_INSTALL_DIR=/usr/lib/llvm-9/
-
+RUN apt-get install -y packaging
 RUN cd /root/ && git clone git://code.qt.io/pyside/pyside-setup.git && \
 	cd pyside-setup && \
 	git checkout 5.15.2 && \

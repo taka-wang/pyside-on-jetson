@@ -23,5 +23,4 @@ RUN cd /root/ && git clone git://code.qt.io/pyside/pyside-setup.git && \
     sed -i -- "s/\${QtGui_GEN_DIR}\/qopengltimerquery_wrapper.cpp/#\${QtGui_GEN_DIR}\/qopengltimerquery_wrapper.cpp/g" ~/pyside-setup/sources/pyside2/PySide2/QtGui/CMakeLists.txt && \
     python3 setup.py build
 
-RUN python3 setup.py --only-package bdist_wheel && \
-    python3 setup.py install
+RUN cd /root/pyside-setup && python3 setup.py --only-package bdist_wheel

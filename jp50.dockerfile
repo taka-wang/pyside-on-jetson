@@ -22,5 +22,4 @@ RUN cd /root/ && git clone git://code.qt.io/pyside/pyside-setup.git && \
     sed -i -- "s/3.7/3.8/g" ~/pyside-setup/build_scripts/config.py && \
     python3 setup.py build
 
-RUN python3 setup.py --only-package bdist_wheel && \
-    python3 setup.py install
+RUN cd /root/pyside-setup && python3 setup.py --only-package bdist_wheel

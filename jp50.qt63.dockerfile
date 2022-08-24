@@ -31,4 +31,7 @@ RUN apt-get install -y ninja-build llvm-10 clang-10 libclang-10-dev
 RUN cd /root/ && git clone --recursive https://code.qt.io/pyside/pyside-setup && \
     cd pyside-setup && \
 	git checkout 6.3.1 && \
-    python3 setup.py build --qtpaths=/usr/local/Qt-6.3.1/bin/qtpaths --build-tests --ignore-git --parallel=16
+    python3 setup.py build --qtpaths=/usr/local/Qt-6.3.1/bin/qtpaths --build-tests --ignore-git --parallel=16 && \
+    python3 setup.py bdist_wheel \
+    --parallel=16 --ignore-git --reuse-build --standalone --limited-api=yes \
+    --qtpaths=/usr/local/Qt-6.3.1/bin/qtpaths

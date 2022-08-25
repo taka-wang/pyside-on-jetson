@@ -41,6 +41,10 @@ RUN wget http://master.qt.io/archive/qt/6.3/6.3.1/single/qt-everywhere-src-6.3.1
     tar -xpf qt-everywhere-src-6.3.1.tar.xz && \
     rm qt-everywhere-src-6.3.1.tar.xz 
 
+RUN apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates && \
+    curl -sL https://deb.nodesource.com/setup_12.x | -E bash - && \
+    apt -y install nodejs
+    
 RUN cd qt-everywhere-src-6.3.1 && \
     ./configure -opensource \
 	-confirm-license \

@@ -49,7 +49,7 @@ RUN cd qt-everywhere-src-6.3.1 && \
 	-xcb \
 	-xcb-xlib \
 	-bundled-xcb-xinput && \
-    cmake --build .--parallel=16
+    cmake --build . --parallel=16
 
 RUN cd qt-everywhere-src-6.3.1 && make install
 

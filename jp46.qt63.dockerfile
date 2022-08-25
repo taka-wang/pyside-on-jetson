@@ -63,7 +63,7 @@ RUN cd qt-everywhere-src-6.3.1 && \
 	-bundled-xcb-xinput && \
     cmake --build . --parallel=4
 
-RUN cd qt-everywhere-src-6.3.1 && make install
+RUN cd qt-everywhere-src-6.3.1 && cmake --install .
 
 RUN git clone --recursive https://code.qt.io/pyside/pyside-setup && \
     cd pyside-setup && \

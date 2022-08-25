@@ -46,7 +46,10 @@ RUN apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates 
     apt -y install nodejs
 
 RUN pip3 install html5lib
-RUN apt-get install -y ninja-build llvm-10 clang-10 libclang-10-dev gcc-8 g++-9
+
+ENV LLVM_INSTALL_DIR=/usr/lib/llvm-10/
+RUN apt-get install -y ninja-build llvm-10 clang-10 libclang-10-dev g++-8 gcc-8
+
 RUN cd qt-everywhere-src-6.3.1 && \
     ./configure -opensource \
 	-confirm-license \

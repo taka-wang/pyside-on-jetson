@@ -11,7 +11,7 @@ RUN apt-get install -y libclang-dev libclang-9-dev libssl-dev libsdl2-dev libaso
 
 ENV LLVM_INSTALL_DIR=/usr/lib/llvm-10/
 RUN pip3 install --upgrade pip setuptools && pip3 install packaging
-RUN apt-get install -y ninja-build llvm-10 clang-10 libclang-10-dev gcc-8 g++-8
+RUN apt-get install -y ninja-build llvm-10 clang-10 libclang-10-dev g++-8 gcc-8 
 #ENV Clang_DIR=/usr/lib/clang/
 
 WORKDIR /root/

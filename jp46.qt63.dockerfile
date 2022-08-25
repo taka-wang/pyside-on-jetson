@@ -32,7 +32,7 @@ RUN wget http://master.qt.io/archive/qt/6.3/6.3.1/single/qt-everywhere-src-6.3.1
 RUN apt install -y bison build-essential clang flex gperf \
     libatspi2.0-dev libbluetooth-dev libclang-dev libcups2-dev libdrm-dev \
     libegl1-mesa-dev libfontconfig1-dev libfreetype6-dev \
-    libgstreamer1.0-dev libhunspell-dev libnss3-dev libopengl-dev \
+    libgstreamer1.0-dev libhunspell-dev libnss3-dev \
     libpulse-dev libssl-dev libts-dev libx11-dev libx11-xcb-dev \
     libxcb-glx0-dev libxcb-icccm4-dev libxcb-image0-dev \
     libxcb-keysyms1-dev libxcb-randr0-dev libxcb-render-util0-dev \
@@ -41,7 +41,7 @@ RUN apt install -y bison build-essential clang flex gperf \
     libxcomposite-dev libxcursor-dev libxdamage-dev libxext-dev \
     libxfixes-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev \
     libxkbfile-dev libxrandr-dev libxrender-dev libxshmfence-dev \
-    libxshmfence1 llvm ninja-build nodejs python-is-python2 python2
+    libxshmfence1 llvm ninja-build nodejs
 
 RUN cd qt-everywhere-src-6.3.1 && \
     ./configure -opensource \

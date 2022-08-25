@@ -29,6 +29,20 @@ RUN wget http://master.qt.io/archive/qt/6.3/6.3.1/single/qt-everywhere-src-6.3.1
     tar -xpf qt-everywhere-src-6.3.1.tar.xz && \
     rm qt-everywhere-src-6.3.1.tar.xz 
 
+RUN apt install -y bison build-essential clang flex gperf \
+    libatspi2.0-dev libbluetooth-dev libclang-dev libcups2-dev libdrm-dev \
+    libegl1-mesa-dev libfontconfig1-dev libfreetype6-dev \
+    libgstreamer1.0-dev libhunspell-dev libnss3-dev libopengl-dev \
+    libpulse-dev libssl-dev libts-dev libx11-dev libx11-xcb-dev \
+    libxcb-glx0-dev libxcb-icccm4-dev libxcb-image0-dev \
+    libxcb-keysyms1-dev libxcb-randr0-dev libxcb-render-util0-dev \
+    libxcb-shape0-dev libxcb-shm0-dev libxcb-sync-dev libxcb-util-dev \
+    libxcb-xfixes0-dev libxcb-xinerama0-dev libxcb-xkb-dev libxcb1-dev \
+    libxcomposite-dev libxcursor-dev libxdamage-dev libxext-dev \
+    libxfixes-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev \
+    libxkbfile-dev libxrandr-dev libxrender-dev libxshmfence-dev \
+    libxshmfence1 llvm ninja-build nodejs python-is-python2 python2
+
 RUN cd qt-everywhere-src-6.3.1 && \
     ./configure -opensource \
 	-confirm-license \
@@ -37,7 +51,8 @@ RUN cd qt-everywhere-src-6.3.1 && \
 	-xcb \
 	-xcb-xlib \
 	-bundled-xcb-xinput && \
-    make -j4
+    cmake --build .
+
 
 RUN cd qt-everywhere-src-6.3.1 && make install
 

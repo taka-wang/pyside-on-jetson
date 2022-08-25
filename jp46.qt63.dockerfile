@@ -49,6 +49,8 @@ RUN pip3 install html5lib
 
 ENV LLVM_INSTALL_DIR=/usr/lib/llvm-10/
 RUN apt-get install -y ninja-build llvm-10 clang-10 libclang-10-dev g++-8 gcc-8
+RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 8 && \
+    update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 8
 RUN gcc --version
 RUN g++ --version
 RUN cd qt-everywhere-src-6.3.1 && \

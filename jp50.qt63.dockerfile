@@ -63,6 +63,7 @@ RUN cd qt-everywhere-src-6.3.1 && make install
 RUN git clone --recursive https://code.qt.io/pyside/pyside-setup && \
     cd pyside-setup && \
 	git checkout 6.3.1 && \
+    sed -i -- "s/3.7/3.8/g" ~/pyside-setup/build_scripts/config.py && \
     python3 setup.py build --qtpaths=/usr/local/Qt-6.3.1/bin/qtpaths --build-tests --ignore-git --parallel=16
 
 RUN cd pyside-setup && \

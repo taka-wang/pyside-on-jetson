@@ -45,6 +45,8 @@ RUN apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates 
     curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
     apt -y install nodejs
 
+RUN pip3 install html5lib
+
 RUN cd qt-everywhere-src-6.3.1 && \
     ./configure -opensource \
 	-confirm-license \

@@ -67,4 +67,5 @@ RUN cd /root/ && git clone git://code.qt.io/pyside/pyside-setup.git && \
 	git checkout 5.15.2 && \
     python3 setup.py build --qmake=/usr/local/Qt-5.15.2/bin/qmake
 
-RUN cd /root/pyside-setup && python3 setup.py --only-package bdist_wheel
+RUN cd /root/pyside-setup && python3 setup.py bdist_wheel --qmake=/usr/local/Qt-5.15.2/bin/qmake --only-package --ignore-git 
+
